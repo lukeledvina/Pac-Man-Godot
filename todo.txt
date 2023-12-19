@@ -1,0 +1,9 @@
+Pac-Man Clone
+
+Try to design it in such a way that makes the UI + game responsive and scale well
+
+Grid Movement
+Score System
+Different Enemy AIs, all inheriting from a base enemy
+Power-Ups
+Level Completion

@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://3gy18o6yymyo"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_l1t1g"]
+[ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="1_w7oqg"]
+
+[sub_resource type="Animation" id="Animation_vh8x7"]
+resource_name = "Move"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_tn1ow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p15me"]
+_data = {
+"Move": SubResource("Animation_vh8x7"),
+"RESET": SubResource("Animation_tn1ow")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h3gx"]
+size = Vector2(12, 12)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 14
+script = ExtResource("1_l1t1g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w7oqg")
+hframes = 14
+vframes = 4
+frame = 1
+region_enabled = true
+region_rect = Rect2(456, 0, 224, 62)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p15me")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2h3gx")

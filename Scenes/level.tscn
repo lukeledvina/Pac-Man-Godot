@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqud4f0wmvjyy"]
+
+[ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="1_hdbjb"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(0, 36, 224, 36, 224, 116, 224, 144, 180, 144, 180, 112, 220, 112, 220, 40, 116, 40, 116, 72, 108, 72, 108, 40, 4, 40, 4, 112, 44, 112, 44, 144, 0, 144)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(20, 56, 44, 56, 44, 72, 20, 72)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(60, 56, 92, 56, 92, 72, 60, 72)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(20, 88, 44, 88, 44, 96, 20, 96)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(60, 88, 68, 88, 68, 112, 92, 112, 92, 120, 68, 120, 68, 144, 60, 144)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(84, 88, 140, 88, 140, 96, 116, 96, 116, 120, 108, 120, 108, 96, 84, 96)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(156, 88, 164, 88, 164, 144, 156, 144, 156, 120, 132, 120, 132, 112, 156, 112)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(132, 56, 164, 56, 164, 72, 132, 72)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(180, 56, 204, 56, 204, 72, 180, 72)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(180, 88, 204, 88, 204, 96, 180, 96)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(104, 140, 104, 136, 84, 136, 84, 168, 140, 168, 140, 136, 120, 136, 120, 140, 136, 140, 136, 164, 88, 164, 88, 140)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(156, 160, 164, 160, 164, 192, 156, 192)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(224, 160, 224, 284, 0, 284, 0, 160, 44, 160, 44, 192, 4, 192, 4, 232, 20, 232, 20, 240, 4, 240, 4, 280, 220, 280, 220, 240, 204, 240, 204, 232, 220, 232, 220, 192, 180, 192, 180, 160)
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(60, 160, 68, 160, 68, 192, 60, 192)
+
+[node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(84, 184, 140, 184, 140, 192, 116, 192, 116, 216, 108, 216, 108, 192, 84, 192)
+
+[node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(132, 208, 164, 208, 164, 216, 132, 216)
+
+[node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(180, 208, 204, 208, 204, 216, 188, 216, 188, 240, 180, 240)
+
+[node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(204, 264, 204, 256, 164, 256, 164, 232, 156, 232, 156, 256, 132, 256, 132, 264)
+
+[node name="CollisionPolygon2D19" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(116, 264, 116, 240, 140, 240, 140, 232, 84, 232, 84, 240, 108, 240, 108, 264)
+
+[node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(92, 264, 92, 256, 68, 256, 68, 232, 60, 232, 60, 256, 20, 256, 20, 264)
+
+[node name="CollisionPolygon2D21" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(44, 240, 44, 208, 20, 208, 20, 216, 36, 216, 36, 240)
+
+[node name="CollisionPolygon2D22" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(60, 208, 92, 208, 92, 216, 60, 216)
+
+[node name="LevelSprite" type="Sprite2D" parent="."]
+position = Vector2(112, 160)
+texture = ExtResource("1_hdbjb")
+region_enabled = true
+region_rect = Rect2(228, 0, 224, 248)
