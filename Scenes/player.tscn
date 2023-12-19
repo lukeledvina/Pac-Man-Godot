@@ -1,7 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://3gy18o6yymyo"]
+[gd_scene load_steps=9 format=3 uid="uid://3gy18o6yymyo"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_l1t1g"]
 [ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="1_w7oqg"]
+[ext_resource type="Shader" path="res://Shaders/player.gdshader" id="2_fixh1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h3gx"]
+size = Vector2(12, 14)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_inolx"]
+shader = ExtResource("2_fixh1")
+shader_parameter/u_color_key = Vector4(0, 0, 0, 100)
+shader_parameter/u_replacement_color = Vector4(0, 0, 0, 0)
+shader_parameter/tolerance = null
 
 [sub_resource type="Animation" id="Animation_vh8x7"]
 resource_name = "Move"
@@ -41,14 +51,16 @@ _data = {
 "RESET": SubResource("Animation_tn1ow")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h3gx"]
-size = Vector2(12, 12)
-
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 14
 script = ExtResource("1_l1t1g")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2h3gx")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_inolx")
 texture = ExtResource("1_w7oqg")
 hframes = 14
 vframes = 4
@@ -60,7 +72,3 @@ region_rect = Rect2(456, 0, 224, 62)
 libraries = {
 "": SubResource("AnimationLibrary_p15me")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_2h3gx")

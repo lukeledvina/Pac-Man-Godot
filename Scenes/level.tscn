@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqud4f0wmvjyy"]
+[gd_scene load_steps=3 format=3 uid="uid://dqud4f0wmvjyy"]
 
 [ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="1_hdbjb"]
+[ext_resource type="PackedScene" uid="uid://3gy18o6yymyo" path="res://Scenes/player.tscn" id="2_yd2xf"]
 
 [node name="Level" type="Node2D"]
 
@@ -79,3 +80,6 @@ position = Vector2(112, 160)
 texture = ExtResource("1_hdbjb")
 region_enabled = true
 region_rect = Rect2(228, 0, 224, 248)
+
+[node name="Player" parent="." instance=ExtResource("2_yd2xf")]
+position = Vector2(112, 176)
