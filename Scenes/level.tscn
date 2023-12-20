@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqud4f0wmvjyy"]
+[gd_scene load_steps=8 format=3 uid="uid://dqud4f0wmvjyy"]
 
 [ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="1_hdbjb"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_q2tmw"]
+[ext_resource type="Texture2D" uid="uid://djulo2lqq7qry" path="res://Assets/Arcade - Pac-Man - Maze Parts.png" id="2_cjktn"]
 [ext_resource type="PackedScene" uid="uid://3gy18o6yymyo" path="res://Scenes/player.tscn" id="2_yd2xf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jgbj"]
@@ -10,8 +11,19 @@ size = Vector2(7, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhfc3"]
 size = Vector2(7, 14)
 
+[sub_resource type="Theme" id="Theme_ceuod"]
+default_font_size = 10
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_q2tmw")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(112, 150)
+scale = Vector2(112, 150)
+texture = ExtResource("2_cjktn")
+region_enabled = true
+region_rect = Rect2(345, 21, 2, 2)
 
 [node name="LevelSprite" type="Sprite2D" parent="."]
 position = Vector2(112, 160)
@@ -111,6 +123,38 @@ position = Vector2(-3.5, 0)
 shape = SubResource("RectangleShape2D_vhfc3")
 
 [node name="Pellets" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ceuod")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = -2
+
+[node name="ScoreText" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SCORE"
+
+[node name="ScoreNumber" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "0"
 
 [connection signal="body_entered" from="TeleportZones/LeftZone" to="." method="_on_left_zone_body_entered"]
 [connection signal="body_entered" from="TeleportZones/RightZone" to="." method="_on_right_zone_body_entered"]

@@ -13,6 +13,7 @@ To implement:
 	Score / Game UI
 	Super Pellets
 	Ghosts
+	Lives System
 	
 	Main Menu
 		Play
@@ -20,6 +21,8 @@ To implement:
 		Options
 		
 	Shader to Remove black from sprites and replace w/ transparency
+	
+	Save system to save high scores
 	
 	Controller Support / Remappable controls ( both really useful to learn for future )
 	

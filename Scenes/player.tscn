@@ -9,9 +9,6 @@ radius = 6.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_inolx"]
 shader = ExtResource("2_fixh1")
-shader_parameter/u_color_key = Vector4(0, 0, 0, 100)
-shader_parameter/u_replacement_color = Vector4(0, 0, 0, 0)
-shader_parameter/tolerance = null
 
 [sub_resource type="Animation" id="Animation_tn1ow"]
 length = 0.001
@@ -30,9 +27,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_srwfo"]
 resource_name = "MoveRight"
-length = 0.4
+length = 0.2
 loop_mode = 1
-step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,7 +36,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
