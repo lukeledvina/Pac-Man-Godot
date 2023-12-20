@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7lgg8dpw30nb"]
+
+[ext_resource type="Script" path="res://Scripts/pellet.gd" id="1_mrhdd"]
+[ext_resource type="Texture2D" uid="uid://djulo2lqq7qry" path="res://Assets/Arcade - Pac-Man - Maze Parts.png" id="1_on4m3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unfkv"]
+size = Vector2(2, 2)
+
+[node name="Pellet" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_mrhdd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_on4m3")
+region_enabled = true
+region_rect = Rect2(345, 21, 2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_unfkv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 # cast a ray, if there is no intersection, then move that way when pressing direction
 var direction: Vector2 = Vector2.ZERO
-var speed: int = 100
+var speed: int = 75
 
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -42,8 +42,12 @@ func _process(_delta):
 		animation_player.play("MoveRight")
 	elif Input.is_action_pressed("right") && not (raycast_right_1.is_colliding() or raycast_right_2.is_colliding() or raycast_right_3.is_colliding()):
 		direction = Vector2.RIGHT
-		sprite.rotation_degrees = 0
-		animation_player.play("MoveRight")
+		if raycast_right_1.is_colliding():
+			animation_player.stop()
+		else:
+			sprite.rotation_degrees = 0
+			animation_player.play("MoveRight")
+		
 		
 	velocity = direction * speed
 	move_and_slide()

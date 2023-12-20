@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqud4f0wmvjyy"]
+[gd_scene load_steps=7 format=3 uid="uid://dqud4f0wmvjyy"]
 
 [ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="1_hdbjb"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_q2tmw"]
 [ext_resource type="PackedScene" uid="uid://3gy18o6yymyo" path="res://Scenes/player.tscn" id="2_yd2xf"]
+[ext_resource type="PackedScene" uid="uid://b7lgg8dpw30nb" path="res://Scenes/pellet.tscn" id="4_lcw8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jgbj"]
+size = Vector2(7, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhfc3"]
+size = Vector2(7, 14)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_q2tmw")
 
 [node name="LevelSprite" type="Sprite2D" parent="."]
 position = Vector2(112, 160)
@@ -83,3 +92,29 @@ polygon = PackedVector2Array(60, 208, 92, 208, 92, 216, 60, 216)
 
 [node name="Player" parent="." instance=ExtResource("2_yd2xf")]
 position = Vector2(112, 176)
+
+[node name="TeleportZones" type="Node2D" parent="."]
+
+[node name="LeftZone" type="Area2D" parent="TeleportZones"]
+position = Vector2(-16, 152)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportZones/LeftZone"]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_2jgbj")
+
+[node name="RightZone" type="Area2D" parent="TeleportZones"]
+position = Vector2(240, 152)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportZones/RightZone"]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_vhfc3")
+
+[node name="Pellets" type="Node2D" parent="."]
+
+[node name="Pellet" parent="Pellets" instance=ExtResource("4_lcw8r")]
+position = Vector2(52, 152)
+
+[connection signal="body_entered" from="TeleportZones/LeftZone" to="." method="_on_left_zone_body_entered"]
+[connection signal="body_entered" from="TeleportZones/RightZone" to="." method="_on_right_zone_body_entered"]

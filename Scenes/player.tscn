@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://Shaders/player.gdshader" id="2_fixh1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_grope"]
-radius = 7.07107
+radius = 6.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_inolx"]
 shader = ExtResource("2_fixh1")
