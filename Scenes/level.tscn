@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqud4f0wmvjyy"]
+[gd_scene load_steps=6 format=3 uid="uid://dqud4f0wmvjyy"]
 
 [ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="1_hdbjb"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_q2tmw"]
 [ext_resource type="PackedScene" uid="uid://3gy18o6yymyo" path="res://Scenes/player.tscn" id="2_yd2xf"]
-[ext_resource type="PackedScene" uid="uid://b7lgg8dpw30nb" path="res://Scenes/pellet.tscn" id="4_lcw8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jgbj"]
 size = Vector2(7, 14)
@@ -55,7 +54,7 @@ polygon = PackedVector2Array(180, 56, 204, 56, 204, 72, 180, 72)
 polygon = PackedVector2Array(180, 88, 204, 88, 204, 96, 180, 96)
 
 [node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Boundaries"]
-polygon = PackedVector2Array(104, 140, 104, 136, 84, 136, 84, 168, 140, 168, 140, 136, 120, 136, 120, 140, 136, 140, 136, 164, 88, 164, 88, 140)
+polygon = PackedVector2Array(104, 136, 84, 136, 84, 168, 140, 168, 140, 136, 120, 136)
 
 [node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Boundaries"]
 polygon = PackedVector2Array(156, 160, 164, 160, 164, 192, 156, 192)
@@ -112,9 +111,6 @@ position = Vector2(-3.5, 0)
 shape = SubResource("RectangleShape2D_vhfc3")
 
 [node name="Pellets" type="Node2D" parent="."]
-
-[node name="Pellet" parent="Pellets" instance=ExtResource("4_lcw8r")]
-position = Vector2(52, 152)
 
 [connection signal="body_entered" from="TeleportZones/LeftZone" to="." method="_on_left_zone_body_entered"]
 [connection signal="body_entered" from="TeleportZones/RightZone" to="." method="_on_right_zone_body_entered"]

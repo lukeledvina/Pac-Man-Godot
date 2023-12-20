@@ -8,6 +8,7 @@ size = Vector2(2, 2)
 
 [node name="Pellet" type="Area2D"]
 collision_layer = 0
+collision_mask = 9
 script = ExtResource("1_mrhdd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

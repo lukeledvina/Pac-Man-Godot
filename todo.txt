@@ -10,7 +10,7 @@ Level Completion
 
 
 To implement:
-	Pellets
+	Score / Game UI
 	Super Pellets
 	Ghosts
 	
@@ -18,6 +18,8 @@ To implement:
 		Play
 		High Scores
 		Options
+		
+	Shader to Remove black from sprites and replace w/ transparency
 	
 	Controller Support / Remappable controls ( both really useful to learn for future )
 	
