@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="1_w7oqg"]
 [ext_resource type="Shader" path="res://Shaders/player.gdshader" id="2_fixh1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h3gx"]
-size = Vector2(12, 14)
+[sub_resource type="CircleShape2D" id="CircleShape2D_grope"]
+radius = 7.07107
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_inolx"]
 shader = ExtResource("2_fixh1")
@@ -13,10 +13,26 @@ shader_parameter/u_color_key = Vector4(0, 0, 0, 100)
 shader_parameter/u_replacement_color = Vector4(0, 0, 0, 0)
 shader_parameter/tolerance = null
 
-[sub_resource type="Animation" id="Animation_vh8x7"]
-resource_name = "Move"
+[sub_resource type="Animation" id="Animation_tn1ow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_srwfo"]
+resource_name = "MoveRight"
 length = 0.4
 loop_mode = 1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,24 +46,9 @@ tracks/0/keys = {
 "values": [1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_tn1ow"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p15me"]
 _data = {
-"Move": SubResource("Animation_vh8x7"),
+"MoveRight": SubResource("Animation_srwfo"),
 "RESET": SubResource("Animation_tn1ow")
 }
 
@@ -55,16 +56,82 @@ _data = {
 collision_mask = 14
 script = ExtResource("1_l1t1g")
 
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="RayCastRight" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastRight2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 6)
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastRight3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -6)
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastDown" type="RayCast2D" parent="Raycasts"]
+rotation = 1.5708
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastDown2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(6, 0)
+rotation = 1.5708
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastDown3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(-6, 0)
+rotation = 1.5708
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastLeft" type="RayCast2D" parent="Raycasts"]
+rotation = 3.14159
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastLeft2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 6)
+rotation = 3.14159
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastLeft3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -6)
+rotation = 3.14159
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastUp" type="RayCast2D" parent="Raycasts"]
+rotation = 4.71239
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastUp2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(6, 0)
+rotation = 4.71239
+target_position = Vector2(12, 0)
+collision_mask = 8
+
+[node name="RayCastUp3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(-6, 0)
+rotation = 4.71239
+target_position = Vector2(12, 0)
+collision_mask = 8
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_2h3gx")
+shape = SubResource("CircleShape2D_grope")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_inolx")
 texture = ExtResource("1_w7oqg")
 hframes = 14
 vframes = 4
-frame = 1
 region_enabled = true
 region_rect = Rect2(456, 0, 224, 62)
 

@@ -5,6 +5,12 @@
 
 [node name="Level" type="Node2D"]
 
+[node name="LevelSprite" type="Sprite2D" parent="."]
+position = Vector2(112, 160)
+texture = ExtResource("1_hdbjb")
+region_enabled = true
+region_rect = Rect2(228, 0, 224, 248)
+
 [node name="Boundaries" type="StaticBody2D" parent="."]
 collision_layer = 8
 collision_mask = 3
@@ -74,12 +80,6 @@ polygon = PackedVector2Array(44, 240, 44, 208, 20, 208, 20, 216, 36, 216, 36, 24
 
 [node name="CollisionPolygon2D22" type="CollisionPolygon2D" parent="Boundaries"]
 polygon = PackedVector2Array(60, 208, 92, 208, 92, 216, 60, 216)
-
-[node name="LevelSprite" type="Sprite2D" parent="."]
-position = Vector2(112, 160)
-texture = ExtResource("1_hdbjb")
-region_enabled = true
-region_rect = Rect2(228, 0, 224, 248)
 
 [node name="Player" parent="." instance=ExtResource("2_yd2xf")]
 position = Vector2(112, 176)
