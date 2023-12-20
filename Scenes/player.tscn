@@ -128,6 +128,7 @@ material = SubResource("ShaderMaterial_inolx")
 texture = ExtResource("1_w7oqg")
 hframes = 14
 vframes = 4
+frame = 1
 region_enabled = true
 region_rect = Rect2(456, 0, 224, 62)
 

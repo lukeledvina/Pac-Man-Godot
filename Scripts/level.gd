@@ -33,6 +33,12 @@ func _on_pellet_eaten():
 	Globals.score += 10
 	score_number.text = str(Globals.score)
 	
+	print(pellet_container.get_child_count())
+	
+	if pellet_container.get_child_count() <= 1:
+		await get_tree().create_timer(2).timeout
+		get_tree().reload_current_scene()
+	
 func spawn_pellets():
 	while current_pos.y <= final_pos.y:
 		var new_pellet = pellet_scene.instantiate()
