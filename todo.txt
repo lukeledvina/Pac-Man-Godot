@@ -10,15 +10,11 @@ Level Completion
 
 
 To implement:
-	Score / Game UI
-	Super Pellets
 	Ghosts
+	Super Pellets
+
 	Lives System
 	
-	Main Menu
-		Play
-		High Scores
-		Options
 		
 	Shader to Remove black from sprites and replace w/ transparency
 	
