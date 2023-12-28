@@ -10,7 +10,7 @@ Level Completion
 
 
 To implement:
-	Ghosts
+	Ghosts (state machine for chasing, running(blue), etc.)
 	Super Pellets
 
 	Lives System

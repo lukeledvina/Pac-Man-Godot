@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bph8he8ty220r"]
+
+[ext_resource type="PackedScene" uid="uid://cdjedxqhmej3c" path="res://Scenes/ghost.tscn" id="1_omtui"]
+
+[node name="Pinky" instance=ExtResource("1_omtui")]
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(456, 80, 128, 16)

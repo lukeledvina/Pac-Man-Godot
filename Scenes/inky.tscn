@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdud6g1artnb"]
+
+[ext_resource type="PackedScene" uid="uid://cdjedxqhmej3c" path="res://Scenes/ghost.tscn" id="1_1chfd"]
+
+[node name="Inky" instance=ExtResource("1_1chfd")]
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(456, 96, 128, 16)

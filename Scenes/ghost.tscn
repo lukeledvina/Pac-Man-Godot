@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdjedxqhmej3c"]
+
+[ext_resource type="Script" path="res://Scripts/ghost.gd" id="1_3fa22"]
+[ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="2_1hscd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxn1y"]
+radius = 6.0
+
+[node name="Ghost" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_3fa22")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="RayCastRight" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastRight2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 6)
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastRight3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -6)
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastDown" type="RayCast2D" parent="Raycasts"]
+rotation = 1.5708
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastDown2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(6, 0)
+rotation = 1.5708
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastDown3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(-6, 0)
+rotation = 1.5708
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastLeft" type="RayCast2D" parent="Raycasts"]
+rotation = 3.14159
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastLeft2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 6)
+rotation = 3.14159
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastLeft3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -6)
+rotation = 3.14159
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastUp" type="RayCast2D" parent="Raycasts"]
+rotation = 4.71239
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastUp2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(6, 0)
+rotation = 4.71239
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="RayCastUp3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(-6, 0)
+rotation = 4.71239
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1hscd")
+hframes = 8
+region_enabled = true
+region_rect = Rect2(456, 64, 128, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qxn1y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

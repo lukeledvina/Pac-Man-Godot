@@ -49,8 +49,12 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 14
+collision_mask = 12
 script = ExtResource("1_l1t1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_grope")
 
 [node name="Raycasts" type="Node2D" parent="."]
 
@@ -118,10 +122,6 @@ position = Vector2(-6, 0)
 rotation = 4.71239
 target_position = Vector2(12, 0)
 collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("CircleShape2D_grope")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_inolx")

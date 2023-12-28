@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqud4f0wmvjyy"]
+[gd_scene load_steps=8 format=3 uid="uid://dqud4f0wmvjyy"]
 
 [ext_resource type="Texture2D" uid="uid://cyqgjfra80r5j" path="res://Assets/Arcade - Pac-Man - General Sprites.png" id="1_hdbjb"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_q2tmw"]
 [ext_resource type="PackedScene" uid="uid://3gy18o6yymyo" path="res://Scenes/player.tscn" id="2_yd2xf"]
+[ext_resource type="PackedScene" uid="uid://ba0neekvdx8qi" path="res://Scenes/blinky.tscn" id="4_3aq4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jgbj"]
 size = Vector2(7, 14)
@@ -92,9 +93,6 @@ polygon = PackedVector2Array(44, 240, 44, 208, 20, 208, 20, 216, 36, 216, 36, 24
 [node name="CollisionPolygon2D22" type="CollisionPolygon2D" parent="Boundaries"]
 polygon = PackedVector2Array(60, 208, 92, 208, 92, 216, 60, 216)
 
-[node name="Player" parent="." instance=ExtResource("2_yd2xf")]
-position = Vector2(112, 176)
-
 [node name="TeleportZones" type="Node2D" parent="."]
 
 [node name="LeftZone" type="Area2D" parent="TeleportZones"]
@@ -114,6 +112,11 @@ position = Vector2(-3.5, 0)
 shape = SubResource("RectangleShape2D_vhfc3")
 
 [node name="Pellets" type="Node2D" parent="."]
+
+[node name="GhostContainer" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_yd2xf")]
+position = Vector2(112, 224)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -159,6 +162,12 @@ text = "HIGH"
 [node name="HighScoreNumber" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "0"
+
+[node name="Blinky" parent="." instance=ExtResource("4_3aq4m")]
+position = Vector2(112, 128)
+collision_mask = 9
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 
 [connection signal="body_entered" from="TeleportZones/LeftZone" to="." method="_on_left_zone_body_entered"]
 [connection signal="body_entered" from="TeleportZones/RightZone" to="." method="_on_right_zone_body_entered"]
